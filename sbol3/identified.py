@@ -1,15 +1,25 @@
 from __future__ import annotations
+
 import math
 import posixpath
-from typing import Callable, Any, Optional
 import typing
+from typing import Any, Callable, Optional
 from urllib.parse import urlparse
 
 import rdflib
 
-from . import *
-from .typing import *
+from .constants import (PROV_DERIVED_FROM, PROV_GENERATED_BY, RDF_TYPE,
+                        SBOL_DESCRIPTION, SBOL_DISPLAY_ID, SBOL_HAS_MEASURE,
+                        SBOL_NAME)
+from .document import Document
+from .object import SBOLObject
+from .ownedobject import OwnedObject
+from .refobj_property import ReferencedObject
+from .text_property import TextProperty
+from .typing import Property, Union, ownedobj_list_arg, refobj_list_arg
+from .uri_property import URIProperty
 from .utils import parse_class_name
+from .validation import ValidationReport
 
 
 def is_valid_display_id(display_id: str) -> bool:
